@@ -9,19 +9,19 @@ with open('README.md') as f:
 
 
 setup(
-    name='langdetect',
-    version='1.0.9',
-    description='Language detection library ported from Google\'s language-detection.',
+    name='geezswitch',
+    version='1.0.0',
+    description='Language Identification library.',
     long_description=readme,
     long_description_content_type='text/markdown',
-    author='Michal Mimino Danilak',
-    author_email='michal.danilak@gmail.com',
-    url='https://github.com/Mimino666/langdetect',
-    keywords='language detection library',
-    packages=['langdetect', 'langdetect.utils', 'langdetect.tests'],
+    author='Fitsum Gaim',
+    author_email='fitsum@geezlab.com',
+    url='https://github.com/fgaim/geezswitch',
+    keywords='language identification',
+    packages=['geezswitch', 'geezswitch.utils', 'geezswitch.tests'],
     include_package_data=True,
     install_requires=['six'],
-    license='MIT',
+    license='Apache 2.0',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',

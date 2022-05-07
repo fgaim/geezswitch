@@ -1,6 +1,6 @@
 import unittest
 
-from langdetect.language import Language
+from geezswitch.language import Language
 
 
 class LanguageTest(unittest.TestCase):

@@ -26,7 +26,7 @@ class Detector(object):
 
     Example:
 
-        from langdetect.detector_factory import DetectorFactory
+        from geezswitch.detector_factory import DetectorFactory
         factory = DetectorFactory()
         factory.load_profile('/path/to/profile/directory')
 

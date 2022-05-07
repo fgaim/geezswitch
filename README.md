@@ -1,15 +1,18 @@
-langdetect
+GeezSwitch
 ==========
 
-[![Build Status](https://travis-ci.org/Mimino666/langdetect.svg?branch=master)](https://travis-ci.org/Mimino666/langdetect)
+[![Build Status](https://travis-ci.org/fgaim/geezswitch.svg?branch=master)](https://travis-ci.org/fgaim/geezswitch)
 
-Port of Nakatani Shuyo's [language-detection](https://github.com/shuyo/language-detection) library (version from 03/03/2014) to Python.
+Language Identification (LI) library for 60 languages,
+adapted from Michal Danilak's great package [langdetect](https://github.com/Mimino666/langdetect), adding support for low-resource languages that use the [Ge'ez script](https://en.wikipedia.org/wiki/Ge'ez_script) as a writing system based on the [GeezSwitch dataset](https://github.com/fgaim/geezswitch-data).
 
+
+> The GeezSwitch dataset was published in the paper *"GeezSwitch: Language Identification in Typologically Related Low-resourced East African Languages"* at LREC 2022 and the data can be found [here](https://github.com/fgaim/GeezSwitch-data.git).
 
 Installation
 ============
 
-    $ pip install langdetect
+    $ pip install geezswitch
 
 Supported Python versions 2.7, 3.4+.
 
@@ -17,15 +20,19 @@ Supported Python versions 2.7, 3.4+.
 Languages
 =========
 
-``langdetect`` supports 55 languages out of the box ([ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)):
+The library supports identification across 60 languages in total.
+
+Support for five languages that use the [Ge'ez script](https://en.wikipedia.org/wiki/Ge'ez_script) based on the [GeezSwitch dataset](https://github.com/fgaim/geezswitch-data). Using [ISO 639-3](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Languages/List_of_ISO_639-3_language_codes_(2019)) codes since some of these languages were not included in [ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+
+    amh (Amharic), byn (Blin), gez (Ge'ez), tig (Tigre), tir (Tigrinya)
+
+Support for 55 languages inherited from the original `langdetect` package. Keeping [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) codes for backward compatibility:
 
     af, ar, bg, bn, ca, cs, cy, da, de, el, en, es, et, fa, fi, fr, gu, he,
     hi, hr, hu, id, it, ja, kn, ko, lt, lv, mk, ml, mr, ne, nl, no, pa, pl,
-    pt, ro, ru, sk, sl, so, sq, sv, sw, ta, te, th, tl, tr, uk, ur, vi, zh-cn, zh-tw
+    pt, ro, ru, sk, sl, so, sq, sv, sw, ta, te, th, tl, tr, uk, ur, vi, zh-cn,
+    zh-tw
 
-Support for 5 more languages that use the [Ge'ez script](https://en.wikipedia.org/wiki/Ge'ez_script) based on the [GeezSwitch dataset](https://github.com/fgaim/geezswitch-data). Using [ISO 639-3](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Languages/List_of_ISO_639-3_language_codes_(2019)) since some of these languages do not have ISO 639-1 codes:
-
-    amh, byn, gez, tig, tir
 
 Basic usage
 ===========
@@ -33,29 +40,31 @@ Basic usage
 To detect the language of the text:
 
 ```python
->>> from langdetect import detect
->>> detect("War doesn't show who's right, just who's left.")
-'en'
->>> detect("Ein, zwei, drei, vier")
-'de'
+>>> from geezswitch import detect
+>>> detect("ብኮምፒዩተር ናይ ምስራሕ ክእለት")
+'tir'
+>>> detect("ኳዅረስ ይድ ባሪ ፣ ይት እሺ ይት ገውሪ")
+'byn'
+>>> detect("ወዲብለ ታክያተ ክልኦት አሕድ")
+'tig'
 ```
 
 To find out the probabilities for the top languages:
 
 ```python
->>> from langdetect import detect_langs
+>>> from geezswitch import detect_langs
 >>> detect_langs("Otec matka syn.")
 [sk:0.572770823327, pl:0.292872522702, cs:0.134356653968]
 ```
 
 **NOTE**
 
-Language detection algorithm is non-deterministic, which means that if you try to run it on a text which is either too short or too ambiguous, you might get different results everytime you run it.
+The language detection algorithm is non-deterministic, which means that if you run it on a text which is either too short or too ambiguous, you might get different results everytime you run it.
 
 To enforce consistent results, call following code before the first language detection:
 
 ```python
-from langdetect import DetectorFactory
+from geezswitch import DetectorFactory
 DetectorFactory.seed = 0
 ```
 
@@ -83,6 +92,4 @@ For more details see [language-detection Wiki](https://code.google.com/archive/p
 Original project
 ================
 
-This library is a direct port of Google's [language-detection](https://code.google.com/p/language-detection/) library from Java to Python. All the classes and methods are unchanged, so for more information see the project's website or wiki.
-
-Presentation of the language detection algorithm: [http://www.slideshare.net/shuyo/language-detection-library-for-java](http://www.slideshare.net/shuyo/language-detection-library-for-java).
+This library is adapted from [langdetect](https://github.com/Mimino666/langdetect), which in return is a direct port of Google's [language-detection](https://code.google.com/p/language-detection/) library from Java to Python. For more information, please refer to those repos.

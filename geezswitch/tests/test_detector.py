@@ -2,8 +2,8 @@ import unittest
 
 import six
 
-from langdetect.detector_factory import DetectorFactory
-from langdetect.utils.lang_profile import LangProfile
+from geezswitch.detector_factory import DetectorFactory
+from geezswitch.utils.lang_profile import LangProfile
 
 
 class DetectorTest(unittest.TestCase):

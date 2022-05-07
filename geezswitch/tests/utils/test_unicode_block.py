@@ -2,7 +2,7 @@ import unittest
 
 import six
 
-from langdetect.utils import unicode_block
+from geezswitch.utils import unicode_block
 
 
 class UnicodeBlockTest(unittest.TestCase):
