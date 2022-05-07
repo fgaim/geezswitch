@@ -105,3 +105,18 @@ Original project
 ================
 
 This library is adapted from [langdetect](https://github.com/Mimino666/langdetect), which in return is a direct port of Google's [language-detection](https://code.google.com/p/language-detection/) library from Java to Python. For more information, please refer to those repos.
+
+
+Citation
+========
+
+If you use GeezSwitch in your research, please cite as follows:
+
+``` markdown
+@inproceedings{fgaim2022geezswitch,
+  title={GeezSwitch: Language Identification in Typologically Related Low-resourced East African Languages},
+  author={Fitsum Gaim and Wonsuk Yang and Jong C. Park},
+  booktitle={Proceedings of the 13th Language Resources and Evaluation Conference},
+  year={2022}
+}
+```
