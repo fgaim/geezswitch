@@ -3,6 +3,8 @@ try:
 except ImportError:
     from distutils.core import setup
 
+from geezswitch import __version__
+
 
 with open('README.md') as f:
     readme = f.read()
@@ -10,7 +12,7 @@ with open('README.md') as f:
 
 setup(
     name='geezswitch',
-    version='1.0.0',
+    version=__version__,
     description='Language Identification library.',
     long_description=readme,
     long_description_content_type='text/markdown',
