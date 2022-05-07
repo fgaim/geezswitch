@@ -1,7 +1,10 @@
 GeezSwitch
 ==========
 
-[![Build Status](https://travis-ci.org/fgaim/geezswitch.svg?branch=master)](https://travis-ci.org/fgaim/geezswitch)
+![GitHub issues](https://img.shields.io/github/issues/fgaim/geezswitch.svg)
+[![PyPI](https://img.shields.io/pypi/v/geezswitch.svg)](https://pypi.org/project/geezswitch/)
+[![CircleCI](https://circleci.com/gh/fgaim/geezswitch.svg?style=shield)](https://circleci.com/gh/fgaim/geezswitch)
+
 
 Language Identification (LI) library for 60 languages,
 adapted from Michal Danilak's great package [langdetect](https://github.com/Mimino666/langdetect), adding support for low-resource languages that use the [Ge'ez script](https://en.wikipedia.org/wiki/Ge'ez_script) as a writing system based on the [GeezSwitch dataset](https://github.com/fgaim/geezswitch-data).
@@ -47,6 +50,10 @@ To detect the language of the text:
 'byn'
 >>> detect("ወዲብለ ታክያተ ክልኦት አሕድ")
 'tig'
+>>> detect("ነጭ አበባ ያለው ተክል")
+'amh'
+>>> detect("ወይቤሎ ዮናታን ሐሰ ለከ ወእምከመሰ")
+'gez'
 ```
 
 To find out the probabilities for the top languages:
@@ -71,7 +78,12 @@ DetectorFactory.seed = 0
 How to add new language?
 ========================
 
-You need to create a new language profile. The easiest way to do it is to use the [langdetect.jar](https://github.com/shuyo/language-detection/raw/master/lib/langdetect.jar) tool, which can generate language profiles from Wikipedia abstract database files or plain text.
+> New language contributions are very welcome, particularly, for languagees written in the Ge'ez script.
+You can either use the steps below or just contribute example text for the target language, and we can help with the integration.
+
+Language identification works best when the model is trained on examples of many languages.
+
+To add a new language, you need to create a new language profile. The easiest way to do it is to use the [langdetect.jar](https://github.com/shuyo/language-detection/raw/master/lib/langdetect.jar) tool, which can generate language profiles from Wikipedia abstract database files or plain text.
 
 Wikipedia abstract database files can be retrieved from "Wikipedia Downloads" ([http://download.wikimedia.org/](http://download.wikimedia.org/)). They form '(language code)wiki-(version)-abstract.xml' (e.g. 'enwiki-20101004-abstract.xml' ).
 
